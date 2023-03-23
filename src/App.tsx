@@ -1,17 +1,18 @@
-import * as React from 'react';
-import './App.css';
+import * as React from "react";
+import "./App.css";
 
 class App extends React.Component {
   public render() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">EF Digital Frontend Engineering Test</h1>
+          <h1 className="App-title">All programs</h1>
           <p>
-          Check out the README.md for test instructions.
+            In-depth and immersive programs focused on the most critical
+            leadership skills and behaviors for today's world. We provide
+            on-campus, online and blended program options.
           </p>
         </header>
-  
       </div>
     );
   }
