@@ -20,11 +20,17 @@ export const Programs = () => {
   return (
     <div className="programs-container">
       <h5>Showing {programs?.length} courses</h5>
-      {programs?.map((program: Program) => (
-        <div key={program?.id}>
-          <ProgramCard title={program?.title} />
-        </div>
-      ))}
+      {programs?.length
+        ? programs?.map((program: Program) => (
+            <ProgramCard
+              key={program?.id}
+              title={program?.title}
+              topic={program?.topic}
+              learningFormats={program?.learningFormats}
+              bestseller={program?.bestseller}
+            />
+          ))
+        : "No results found"}
     </div>
   );
 };
