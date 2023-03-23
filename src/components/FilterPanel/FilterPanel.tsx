@@ -6,9 +6,19 @@ type Props = {
     topics: string[];
     learningFormats: string[];
   };
+  filters: string[];
+  setFilters: (filters: string[]) => void;
 };
 
-export const FilterPanel = ({ categories }: Props) => {
+export const FilterPanel = ({ categories, filters, setFilters }: Props) => {
+  const handleChange = (value: string) => {
+    const updatedFilters = filters.includes(value)
+      ? filters.filter((option) => option !== value)
+      : [...filters, value];
+
+    setFilters(updatedFilters);
+  };
+
   if (!categories?.topics?.length && !categories?.learningFormats?.length)
     return null;
 
@@ -22,7 +32,11 @@ export const FilterPanel = ({ categories }: Props) => {
           </h2>
           {values.map((value) => (
             <div key={value} className="option">
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                onChange={() => handleChange(value)}
+                checked={filters.includes(value)}
+              />
               <span>{value}</span>
             </div>
           ))}
