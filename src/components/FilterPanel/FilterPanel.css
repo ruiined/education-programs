@@ -3,4 +3,63 @@
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
+  gap: 10px;
+}
+
+.category-wrapper {
+  margin-right: 50px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.category-heading {
+  font-size: 1.2rem;
+  color: #383838;
+  text-transform: capitalize;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  gap: 16px;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+
+input[type="checkbox"] {
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  border: 2px solid #b6b6b6;
+  border-radius: 3px;
+  background-color: white;
+  transition: 0.2s ease-in-out;
+}
+
+input[type="checkbox"]:checked::before {
+  background-color: #3b7e6b;
+  border: 2px solid #3b7e6b;
+}
+
+input[type="checkbox"]:checked:after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 3.5px;
+  left: 9px;
 }

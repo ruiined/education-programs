@@ -16,17 +16,17 @@ export const FilterPanel = ({ categories }: Props) => {
     <div className="panel-container">
       <h5>Filter</h5>
       {Object.entries(categories).map(([category, values]) => (
-        <div key={category}>
-          <h2>{category}</h2>
+        <div key={category} className="category-wrapper">
+          <h2 className="category-heading">{category}</h2>
           {values.map((value) => (
-            <p key={value}>
+            <div key={value} className="option">
               <input type="checkbox" />
-              {value}
-            </p>
+              <span>{value}</span>
+            </div>
           ))}
         </div>
       ))}
-      <h5>x Clear filters</h5>
+      <h5 className="hover">x Clear filters</h5>
     </div>
   );
 };
