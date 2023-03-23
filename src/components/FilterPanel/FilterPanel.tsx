@@ -35,16 +35,16 @@ export const FilterPanel = ({ categories, filters, setFilters }: Props) => {
             {category.replace(/([A-Z])/g, " $1")}
           </h2>
           {values.map((value: string) => (
-            <div key={value} className="option">
-              <label>
-                <input
-                  type="checkbox"
-                  onChange={() => handleChange(value)}
-                  checked={filters?.includes(value)}
-                />
-                <span>{value.replace(/-/g, " ").replace(/and/g, "&")}</span>
-              </label>
-            </div>
+            <label key={value} className="option">
+              <input
+                type="checkbox"
+                onChange={() => handleChange(value)}
+                checked={filters?.includes(value)}
+              />
+              <span className="filter-option">
+                {value.replace(/-/g, " ").replace(/and/g, "&")}
+              </span>
+            </label>
           ))}
         </div>
       ))}
