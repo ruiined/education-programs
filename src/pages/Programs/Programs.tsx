@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ProgramCard } from "src/components";
+import { ProgramCard, SortDialog } from "src/components";
 import { FilterPanel } from "src/components/FilterPanel/FilterPanel";
 import { API_URL } from "src/utils/consts";
 import { getLearningFormats, getTopics } from "src/utils/hooks";
@@ -9,6 +9,7 @@ import "./Programs.css";
 export const Programs = () => {
   const [programs, setPrograms] = React.useState<Program[]>([]);
   const [filters, setFilters] = React.useState<string[]>([]);
+  const [sort, setSort] = React.useState<string>("");
 
   const getPrograms = async () => {
     const response = await fetch(`${API_URL}/programs`);
@@ -27,7 +28,7 @@ export const Programs = () => {
     [programs]
   );
 
-  const filteredPrograms = React.useMemo(() => {
+  const filteredEntries = React.useMemo(() => {
     if (!filters?.length) return programs;
     return programs?.filter((program) =>
       filters.every(
@@ -38,6 +39,26 @@ export const Programs = () => {
     );
   }, [filters, programs]);
 
+  const sortedPrograms = React.useMemo(() => {
+    if (!sort) return filteredEntries;
+    return [...filteredEntries].sort((a, b) => {
+      if (sort === "bestseller") {
+        if (a.bestseller && !b.bestseller) {
+          return -1;
+        } else if (!a.bestseller && b.bestseller) {
+          return 1;
+        } else {
+          return 0;
+        }
+      } else {
+        if (!a[sort] || !b[sort]) {
+          return 0;
+        }
+        return a[sort].localeCompare(b[sort]);
+      }
+    });
+  }, [sort, filteredEntries]);
+
   return (
     <div className="programs-container">
       <FilterPanel
@@ -46,11 +67,14 @@ export const Programs = () => {
         setFilters={setFilters}
       />
       <div className="results-wrapper">
-        <h5>
-          Showing {filteredPrograms?.length} of {programs?.length} courses
-        </h5>
-        {filteredPrograms?.length
-          ? filteredPrograms?.map((program: Program) => (
+        <div className="space-between">
+          <h5>
+            Showing {sortedPrograms?.length} of {programs?.length} courses
+          </h5>
+          <SortDialog sort={sort} setSort={setSort} />
+        </div>
+        {sortedPrograms?.length
+          ? sortedPrograms?.map((program: Program) => (
               <ProgramCard
                 key={program?.id}
                 title={program?.title}
