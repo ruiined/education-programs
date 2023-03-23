@@ -1,7 +1,7 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { Programs } from "./Programs";
-import { mockPrograms } from "src/utils/mocks";
+import { mockPrograms } from "../../utils/mocks";
 
 describe("Programs component", () => {
   it("should render programs", async () => {

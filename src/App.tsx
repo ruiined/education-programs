@@ -6,7 +6,7 @@ import { Programs } from "./pages";
 class App extends React.Component {
   public render() {
     return (
-      <div className="App">
+      <div className="app-container">
         <Header />
         <Programs />
       </div>

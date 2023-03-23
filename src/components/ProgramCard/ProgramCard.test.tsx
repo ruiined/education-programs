@@ -1,7 +1,7 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { ProgramCard } from "./ProgramCard";
-import { mockPrograms } from "src/utils/mocks";
+import { mockPrograms } from "../../utils/mocks";
 
 const mockProgram = mockPrograms?.[0];
 
