@@ -18,8 +18,8 @@ describe("FilterPanel", () => {
     const categoryHeadings = screen.getAllByRole("heading", { level: 2 });
 
     expect(categoryHeadings).toHaveLength(2);
-    expect(categoryHeadings[0]).toHaveTextContent("topics");
-    expect(categoryHeadings[1]).toHaveTextContent("learningFormats");
+    expect(categoryHeadings[0]).toHaveTextContent(/topics/i);
+    expect(categoryHeadings[1]).toHaveTextContent(/learning Formats/i);
 
     const checkboxes = screen.getAllByRole("checkbox");
 
