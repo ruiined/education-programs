@@ -9,7 +9,7 @@ import "./Programs.css";
 export const Programs = () => {
   const [programs, setPrograms] = React.useState<Program[]>([]);
   const [filters, setFilters] = React.useState<string[]>([]);
-  console.log(filters);
+
   const getPrograms = async () => {
     const response = await fetch(`${API_URL}/programs`);
     const programs = await response.json();
@@ -37,7 +37,7 @@ export const Programs = () => {
       )
     );
   }, [filters, programs]);
-  console.log(filteredPrograms);
+
   return (
     <div className="programs-container">
       <FilterPanel
@@ -46,7 +46,9 @@ export const Programs = () => {
         setFilters={setFilters}
       />
       <div className="results-wrapper">
-        <h5>Showing {programs?.length} courses</h5>
+        <h5>
+          Showing {filteredPrograms?.length} of {programs?.length} courses
+        </h5>
         {filteredPrograms?.length
           ? filteredPrograms?.map((program: Program) => (
               <ProgramCard
