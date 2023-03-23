@@ -18,3 +18,7 @@ export const getLearningFormats = (programs: Program[]): string[] =>
       return formats;
     }, {})
   );
+
+export const formatTopicName = (topic: string): string => {
+  return topic.replace(/-/g, " ").replace(/and/g, "&");
+};

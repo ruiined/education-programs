@@ -2,7 +2,11 @@ import * as React from "react";
 import { ProgramCard } from "src/components";
 import { FilterPanel } from "src/components/FilterPanel/FilterPanel";
 import { API_URL } from "src/utils/consts";
-import { getLearningFormats, getTopics } from "src/utils/hooks";
+import {
+  formatTopicName,
+  getLearningFormats,
+  getTopics,
+} from "src/utils/hooks";
 import type { Program } from "src/utils/types";
 import "./Programs.css";
 
@@ -19,7 +23,10 @@ export const Programs = () => {
     getPrograms();
   }, []);
 
-  const topics = React.useMemo(() => getTopics(programs), [programs]);
+  const topics = React.useMemo(
+    () => getTopics(programs).map((topic) => formatTopicName(topic)),
+    [programs]
+  );
 
   const learningFormats = React.useMemo(
     () => getLearningFormats(programs),

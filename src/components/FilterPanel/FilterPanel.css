@@ -21,10 +21,11 @@
 .option {
   display: flex;
   align-items: center;
-  margin: 20px 0;
-  gap: 16px;
+  margin: 24px 0;
+  gap: 18px;
   text-transform: capitalize;
-  font-weight: 400;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 input[type="checkbox"] {

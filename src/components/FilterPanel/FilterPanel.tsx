@@ -17,7 +17,9 @@ export const FilterPanel = ({ categories }: Props) => {
       <h5>Filter</h5>
       {Object.entries(categories).map(([category, values]) => (
         <div key={category} className="category-wrapper">
-          <h2 className="category-heading">{category}</h2>
+          <h2 className="category-heading">
+            {category.replace(/([A-Z])/g, " $1")}
+          </h2>
           {values.map((value) => (
             <div key={value} className="option">
               <input type="checkbox" />

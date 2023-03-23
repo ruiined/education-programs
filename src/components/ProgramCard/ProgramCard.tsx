@@ -2,6 +2,7 @@ import * as React from "react";
 import type { Program } from "src/utils/types";
 import "./ProgramCard.css";
 import { ReactComponent as Star } from "src/assets/star.svg";
+import { formatTopicName } from "src/utils/hooks";
 
 export const ProgramCard = ({
   title,
@@ -9,6 +10,8 @@ export const ProgramCard = ({
   learningFormats,
   bestseller,
 }: Partial<Program>): JSX.Element => {
+  const formattedTopic = formatTopicName(topic ?? "");
+
   return (
     <div className="program-card-container">
       <div className="space-between">
@@ -22,7 +25,7 @@ export const ProgramCard = ({
       </div>
       <hr className="divider" />
       <div className="space-between">
-        <p className="topic">{topic}</p>
+        <p className="topic">{formattedTopic}</p>
         <p>
           {learningFormats?.map((format, i) => (
             <React.Fragment key={format}>
