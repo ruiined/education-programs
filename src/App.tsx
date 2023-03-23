@@ -1,5 +1,6 @@
 import * as React from "react";
 import "./App.css";
+import { Programs } from "./pages";
 
 class App extends React.Component {
   public render() {
@@ -13,6 +14,7 @@ class App extends React.Component {
             on-campus, online and blended program options.
           </p>
         </header>
+        <Programs />
       </div>
     );
   }
