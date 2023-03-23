@@ -1,5 +1,6 @@
 import * as React from "react";
 import { ProgramCard } from "src/components";
+import { FilterPanel } from "src/components/FilterPanel/FilterPanel";
 import { API_URL } from "src/utils/consts";
 import type { Program } from "src/utils/types";
 import "./Programs.css";
@@ -19,18 +20,21 @@ export const Programs = () => {
 
   return (
     <div className="programs-container">
-      <h5>Showing {programs?.length} courses</h5>
-      {programs?.length
-        ? programs?.map((program: Program) => (
-            <ProgramCard
-              key={program?.id}
-              title={program?.title}
-              topic={program?.topic}
-              learningFormats={program?.learningFormats}
-              bestseller={program?.bestseller}
-            />
-          ))
-        : "No results found"}
+      <FilterPanel />
+      <div className="results-wrapper">
+        <h5>Showing {programs?.length} courses</h5>
+        {programs?.length
+          ? programs?.map((program: Program) => (
+              <ProgramCard
+                key={program?.id}
+                title={program?.title}
+                topic={program?.topic}
+                learningFormats={program?.learningFormats}
+                bestseller={program?.bestseller}
+              />
+            ))
+          : "No results found"}
+      </div>
     </div>
   );
 };
