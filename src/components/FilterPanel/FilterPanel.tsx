@@ -19,6 +19,10 @@ export const FilterPanel = ({ categories, filters, setFilters }: Props) => {
     setFilters(updatedFilters);
   };
 
+  const clearFilters = () => {
+    setFilters([]);
+  };
+
   if (!categories?.topics?.length && !categories?.learningFormats?.length)
     return null;
 
@@ -42,7 +46,9 @@ export const FilterPanel = ({ categories, filters, setFilters }: Props) => {
           ))}
         </div>
       ))}
-      <h5 className="hover">x Clear filters</h5>
+      <h5 className="hover" onClick={clearFilters}>
+        x Clear filters
+      </h5>
     </div>
   );
 };

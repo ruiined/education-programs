@@ -34,14 +34,6 @@ export const Programs = () => {
     [programs]
   );
 
-  // const handleFilterChange = (
-  //   event: React.ChangeEvent<HTMLSelectElement>
-  // ) => {};
-
-  // const clearFilters = () => {
-  //   setFilters({});
-  // };
-
   return (
     <div className="programs-container">
       <FilterPanel
