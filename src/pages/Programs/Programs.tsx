@@ -1,16 +1,8 @@
 import * as React from "react";
+import { ProgramCard } from "src/components";
+import { API_URL } from "src/utils/consts";
+import type { Program } from "src/utils/types";
 import "./Programs.css";
-
-export type Program = {
-  id: number;
-  title: string;
-  topic: string;
-  startDate: Date;
-  learningFormats: string[];
-  bestseller: boolean;
-};
-
-const API_URL = "http://localhost:3010";
 
 export const Programs = () => {
   const [programs, setPrograms] = React.useState<Program[]>([]);
@@ -26,10 +18,12 @@ export const Programs = () => {
   }, []);
 
   return (
-    <div>
+    <div className="programs-container">
       <h5>Showing {programs?.length} courses</h5>
-      {programs?.map((program) => (
-        <div key={program?.id}>{program?.title}</div>
+      {programs?.map((program: Program) => (
+        <div key={program?.id}>
+          <ProgramCard title={program?.title} />
+        </div>
       ))}
     </div>
   );

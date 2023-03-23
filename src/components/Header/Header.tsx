@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./Header.css";
 
-export const Header = () => {
+export const Header = (): JSX.Element => {
   return (
     <header className="header-container">
       <h1 className="header-title">All programs</h1>
