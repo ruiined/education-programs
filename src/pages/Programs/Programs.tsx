@@ -2,11 +2,7 @@ import * as React from "react";
 import { ProgramCard } from "src/components";
 import { FilterPanel } from "src/components/FilterPanel/FilterPanel";
 import { API_URL } from "src/utils/consts";
-import {
-  formatTopicName,
-  getLearningFormats,
-  getTopics,
-} from "src/utils/hooks";
+import { getLearningFormats, getTopics } from "src/utils/hooks";
 import type { Program } from "src/utils/types";
 import "./Programs.css";
 
@@ -24,16 +20,24 @@ export const Programs = () => {
     getPrograms();
   }, []);
 
-  const topics = React.useMemo(
-    () => getTopics(programs).map((topic) => formatTopicName(topic)),
-    [programs]
-  );
+  const topics = React.useMemo(() => getTopics(programs), [programs]);
 
   const learningFormats = React.useMemo(
     () => getLearningFormats(programs),
     [programs]
   );
 
+  const filteredPrograms = React.useMemo(() => {
+    if (!filters?.length) return programs;
+    return programs?.filter((program) =>
+      filters.every(
+        (filter) =>
+          program?.topic?.includes(filter) ||
+          program?.learningFormats?.includes(filter)
+      )
+    );
+  }, [filters, programs]);
+  console.log(filteredPrograms);
   return (
     <div className="programs-container">
       <FilterPanel
@@ -43,8 +47,8 @@ export const Programs = () => {
       />
       <div className="results-wrapper">
         <h5>Showing {programs?.length} courses</h5>
-        {programs?.length
-          ? programs?.map((program: Program) => (
+        {filteredPrograms?.length
+          ? filteredPrograms?.map((program: Program) => (
               <ProgramCard
                 key={program?.id}
                 title={program?.title}

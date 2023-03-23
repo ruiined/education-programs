@@ -34,14 +34,14 @@ export const FilterPanel = ({ categories, filters, setFilters }: Props) => {
           <h2 className="category-heading">
             {category.replace(/([A-Z])/g, " $1")}
           </h2>
-          {values.map((value) => (
+          {values.map((value: string) => (
             <div key={value} className="option">
               <input
                 type="checkbox"
                 onChange={() => handleChange(value)}
-                checked={filters.includes(value)}
+                checked={filters?.includes(value)}
               />
-              <span>{value}</span>
+              <span>{value.replace(/-/g, " ").replace(/and/g, "&")}</span>
             </div>
           ))}
         </div>

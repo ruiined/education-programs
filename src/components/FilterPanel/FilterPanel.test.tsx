@@ -25,8 +25,8 @@ describe("FilterPanel", () => {
 
     expect(checkboxes).toHaveLength(4);
 
-    expect(screen.getByText("change-and-culture")).toBeInTheDocument();
-    expect(screen.getByText("business-strategy")).toBeInTheDocument();
+    expect(screen.getByText("change & culture")).toBeInTheDocument();
+    expect(screen.getByText("business strategy")).toBeInTheDocument();
 
     expect(screen.getByText("virtual")).toBeInTheDocument();
     expect(screen.getByText("residential")).toBeInTheDocument();
