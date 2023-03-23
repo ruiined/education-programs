@@ -12,3 +12,9 @@
   font-size: calc(6px + 1vmin);
   color: #333332;
 }
+
+@media (max-width: 768px) {
+  .header-container {
+    max-width: 100%;
+  }
+}
