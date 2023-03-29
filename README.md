@@ -1,5 +1,22 @@
 # EF Digital - Maria Gromovaja's Frontend Technical Test
 
+## Overview
+
+Coding challenge for a page of education programs overview using Node, React & raw CSS.
+
+Time limit: 3 hours
+
+## Instructions
+
+1. Install the dependencies
+2. `node backend/index.js` to run backend
+3. `npm start` to run the app in dev
+4. Visit [http://localhost:3000](http://localhost:3000)
+
+## Preview
+
+...
+
 ## My Approach
 
 I've started by working on a layout & making the data show up on the page. Step by step, I got the program result cards to come together, and then moved on to filtering. At that point, I was pretty content with how it was coming together, as the functionality, styling & testing was moving along hand in hand.
@@ -28,12 +45,3 @@ I tested components as I was making them, making it easy to keep on top of it. I
 ### Conclusion
 
 It was a fun test and I thoroughly enjoyed the challenges I've encountered. I don't think I've felt this much adrenaline in awhile, as I wanted to do way more but was running out of time. I am fairly happy with the result (if that's ever possible), though very regretful I couldn't do a few features mentioned in the brief.
-
-P.S. I hope writing the readme doesn't count towards the test's time limits, I got a bit carried away :)
-
-## Instructions
-
-1. Install the dependencies
-2. `node backend/index.js` to run backend
-3. `npm start` to run the app in dev
-4. [http://localhost:3000](http://localhost:3000) to view it in the browser
