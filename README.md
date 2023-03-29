@@ -1,6 +1,4 @@
-# EF Digital - Maria Gromovaja's Frontend Technical Test
-
-## Overview
+# Education Programs
 
 Coding challenge for a page of education programs overview using Node, React & raw CSS.
 
@@ -15,7 +13,7 @@ Time limit: 3 hours
 
 ## Preview
 
-...
+![Education_Programs](https://user-images.githubusercontent.com/72412305/228655671-413452ea-8a80-425c-970e-f74f93031b5e.gif)
 
 ## My Approach
 
